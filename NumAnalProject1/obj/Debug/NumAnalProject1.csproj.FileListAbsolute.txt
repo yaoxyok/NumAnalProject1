@@ -1,0 +1,13 @@
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\bin\Debug\NumAnalProject1.exe.config
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\bin\Debug\NumAnalProject1.exe
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\bin\Debug\NumAnalProject1.pdb
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.Forms.Form1.resources
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.Forms.FormBase.resources
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.Forms.FormRawImage.resources
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.Forms.FormStart.resources
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.Properties.Resources.resources
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.csproj.GenerateResource.Cache
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.exe
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.pdb
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.Forms.Form2.resources
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Debug\NumAnalProject1.csprojResolveAssemblyReference.cache
