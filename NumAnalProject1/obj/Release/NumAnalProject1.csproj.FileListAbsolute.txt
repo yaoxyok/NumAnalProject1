@@ -1,6 +1,9 @@
-C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\bin\Release\NumAnalProject1.exe.config
 C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\bin\Release\NumAnalProject1.exe
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\bin\Release\NumAnalProject1.exe.config
 C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\bin\Release\NumAnalProject1.pdb
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\exe\NumAnalProject1.exe.config
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\exe\NumAnalProject1.exe
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\exe\NumAnalProject1.pdb
 C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Release\NumAnalProject1.Forms.Form1.resources
 C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Release\NumAnalProject1.Forms.Form2.resources
 C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Release\NumAnalProject1.Forms.Form3.resources

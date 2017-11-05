@@ -31,6 +31,8 @@ namespace NumAnalProject1.Forms
                 return;
             }
 
+            this.progressBar.Value = 30;
+
             this.SuspendLayout();
 
             if (this.controlPoints != null)
@@ -48,7 +50,7 @@ namespace NumAnalProject1.Forms
             int nColumn = (rawImage.Width - 2) / densityColumn + 2;
 
             pictureBoxPreview.Image = padImage(new Bitmap(this.rawImage),
-                (nRow - 1) * densityRow + 1 - rawImage.Height, 
+                (nRow - 1) * densityRow + 1 - rawImage.Height,
                 (nColumn - 1) * densityColumn + 1 - rawImage.Width);
             paddedRawImage = new Bitmap(pictureBoxPreview.Image);
 
@@ -71,6 +73,8 @@ namespace NumAnalProject1.Forms
 
             this.ResumeLayout(false);
             this.PerformLayout();
+
+            this.progressBar.Value = 100;
         }
 
         private unsafe Bitmap padImage(Bitmap origImage, int incrementRow, int incrementColumn)
@@ -118,6 +122,10 @@ namespace NumAnalProject1.Forms
 
         protected void BSpline()
         {
+            if (pictureBoxPreview.Image == null)
+            {
+                return;
+            }
 
             int nx = (int)numericUpDownIntervalColumn.Value;
             int ny = (int)numericUpDownIntervalRow.Value;
@@ -158,10 +166,27 @@ namespace NumAnalProject1.Forms
                 mat[k] = new UInt32[X];
             }
 
-            Algorithms.CubicBSplineBase cubicBSplineBase = new Algorithms.CubicBSplineBase();
+            Algorithms.BSplineBase bSplineBase = null;
+            int order = (int)numericUpDownBSplineOrder.Value;
+            switch (order)
+            {
+                case 1:
+                    bSplineBase = new Algorithms.LinearBSplineBase();
+                    break;
+                case 3:
+                    bSplineBase = new Algorithms.CubicBSplineBase();
+                    break;
+            }
+
+            this.progressBar.Value = 0;
 
             for (int x = 0; x < X; x++)
             {
+                if (x % (X / 10) == 0)
+                {
+                    this.progressBar.Value = Math.Min(100, progressBar.Value + 10);
+                }
+
                 for (int y = 0; y < Y; y++)
                 {
 
@@ -173,18 +198,18 @@ namespace NumAnalProject1.Forms
                         double u = (currX / nx) - Math.Floor(currX / nx);
                         double v = (currY / ny) - Math.Floor(currY / ny);
 
-                        int i = (int)Math.Floor(currX / nx) - 1;
-                        int j = (int)Math.Floor(currY / ny) - 1;
+                        int i = (int)Math.Floor(currX / nx) - (order / 2);
+                        int j = (int)Math.Floor(currY / ny) - (order / 2);
 
                         double disX = 0;
                         double disY = 0;
 
-                        for (int l = 0; l < 3; l++)
+                        for (int l = 0; l <= order; l++)
                         {
-                            for (int m = 0; m < 3; m++)
+                            for (int m = 0; m <= order; m++)
                             {
-                                double t1 = cubicBSplineBase.CalcBase(l, u);
-                                double t2 = cubicBSplineBase.CalcBase(m, v);
+                                double t1 = bSplineBase.CalcBase(l, u);
+                                double t2 = bSplineBase.CalcBase(m, v);
 
                                 double t3 = 0;
                                 double t4 = 0;
@@ -217,6 +242,8 @@ namespace NumAnalProject1.Forms
             }
 
             pictureBoxPreview.Image = new Bitmap(matToBitmap(mat));
+
+            this.progressBar.Value = 100;
         }
 
         class ControlPoint : PictureBox
@@ -303,6 +330,31 @@ namespace NumAnalProject1.Forms
         }
 
         private void numericUpDownIntervalColumn_ValueChanged(object sender, EventArgs e)
+        {
+            this.updateImage();
+        }
+
+        private void numericUpDownBSplineOrder_ValueChanged(object sender, EventArgs e)
+        {
+            this.BSpline();
+        }
+
+        protected void radioButtonNearestNeighbor_CheckedChanged(object sender, EventArgs e)
+        {
+            this.BSpline();
+        }
+
+        protected void radioButtonBilinear_CheckedChanged(object sender, EventArgs e)
+        {
+            this.BSpline();
+        }
+
+        protected void radioButtonBicubic_CheckedChanged(object sender, EventArgs e)
+        {
+            this.BSpline();
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
         {
             this.updateImage();
         }

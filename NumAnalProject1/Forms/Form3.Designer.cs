@@ -33,21 +33,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelControlPointIndex = new System.Windows.Forms.Label();
+            this.numericUpDownBSplineOrder = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIntervalRow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIntervalColumn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBSplineOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // numericUpDownIntervalRow
             // 
             this.numericUpDownIntervalRow.Location = new System.Drawing.Point(324, 43);
-            this.numericUpDownIntervalRow.Maximum = new decimal(new int[] {
-            70,
-            0,
-            0,
-            0});
             this.numericUpDownIntervalRow.Minimum = new decimal(new int[] {
-            30,
+            40,
             0,
             0,
             0});
@@ -55,7 +56,7 @@
             this.numericUpDownIntervalRow.Size = new System.Drawing.Size(120, 23);
             this.numericUpDownIntervalRow.TabIndex = 8;
             this.numericUpDownIntervalRow.Value = new decimal(new int[] {
-            30,
+            60,
             0,
             0,
             0});
@@ -64,13 +65,8 @@
             // numericUpDownIntervalColumn
             // 
             this.numericUpDownIntervalColumn.Location = new System.Drawing.Point(324, 84);
-            this.numericUpDownIntervalColumn.Maximum = new decimal(new int[] {
-            70,
-            0,
-            0,
-            0});
             this.numericUpDownIntervalColumn.Minimum = new decimal(new int[] {
-            30,
+            40,
             0,
             0,
             0});
@@ -78,7 +74,7 @@
             this.numericUpDownIntervalColumn.Size = new System.Drawing.Size(120, 23);
             this.numericUpDownIntervalColumn.TabIndex = 8;
             this.numericUpDownIntervalColumn.Value = new decimal(new int[] {
-            30,
+            60,
             0,
             0,
             0});
@@ -111,11 +107,79 @@
             this.labelControlPointIndex.TabIndex = 10;
             this.labelControlPointIndex.Text = "正在初始化";
             // 
+            // numericUpDownBSplineOrder
+            // 
+            this.numericUpDownBSplineOrder.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDownBSplineOrder.Location = new System.Drawing.Point(39, 288);
+            this.numericUpDownBSplineOrder.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDownBSplineOrder.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownBSplineOrder.Name = "numericUpDownBSplineOrder";
+            this.numericUpDownBSplineOrder.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDownBSplineOrder.TabIndex = 11;
+            this.numericUpDownBSplineOrder.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDownBSplineOrder.ValueChanged += new System.EventHandler(this.numericUpDownBSplineOrder_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 247);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "B样条阶数：";
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(39, 342);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 13;
+            this.buttonClear.Text = "恢复原图";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(39, 456);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(120, 23);
+            this.progressBar.TabIndex = 14;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(42, 417);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "处理进度：";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 586);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numericUpDownBSplineOrder);
             this.Controls.Add(this.labelControlPointIndex);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -132,9 +196,15 @@
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.labelControlPointIndex, 0);
+            this.Controls.SetChildIndex(this.numericUpDownBSplineOrder, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.buttonClear, 0);
+            this.Controls.SetChildIndex(this.progressBar, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIntervalRow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIntervalColumn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBSplineOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +217,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelControlPointIndex;
+        private System.Windows.Forms.NumericUpDown numericUpDownBSplineOrder;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label label4;
     }
 }

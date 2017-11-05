@@ -31,6 +31,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.labelAuthor = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -63,11 +65,31 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(31, 26);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(165, 17);
+            this.labelVersion.TabIndex = 1;
+            this.labelVersion.Text = "Version: 0.99 (Nov 5, 2017)";
+            // 
+            // labelAuthor
+            // 
+            this.labelAuthor.AutoSize = true;
+            this.labelAuthor.Location = new System.Drawing.Point(286, 26);
+            this.labelAuthor.Name = "labelAuthor";
+            this.labelAuthor.Size = new System.Drawing.Size(165, 17);
+            this.labelAuthor.TabIndex = 2;
+            this.labelAuthor.Text = "Autor: 金帆（2015011506）";
+            // 
             // FormStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 561);
+            this.Controls.Add(this.labelAuthor);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -78,6 +100,7 @@
             this.Name = "FormStart";
             this.Text = "数值分析大作业1 by 金帆 2015011506";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -86,6 +109,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label labelAuthor;
     }
 }
 
