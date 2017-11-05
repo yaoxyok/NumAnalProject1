@@ -22,7 +22,7 @@ namespace NumAnalProject1.Forms
             panel.Controls.Add(box);
         }
 
-        private void panel_Click(object sender, EventArgs e)
+        protected void panel_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.InitialDirectory = Application.StartupPath;
@@ -32,6 +32,6 @@ namespace NumAnalProject1.Forms
             dialog.ShowDialog();
         }
 
-        private PictureBox box;
+        protected PictureBox box;
     }
 }

@@ -29,7 +29,7 @@ namespace NumAnalProject1.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("available soon");
+            (new Form3()).ShowDialog();
         }
     }
 }

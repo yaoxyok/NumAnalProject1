@@ -33,7 +33,7 @@ namespace NumAnalProject1.Forms
                 string fileName = dialog.FileName;
                 Bitmap image = new Bitmap(Image.FromFile(fileName));
                 this.pictureBoxPreview.Image = image;
-                rawImage = image;
+                rawImage = new Bitmap(image);
                 this.updateImage();
             }
         }
@@ -54,22 +54,13 @@ namespace NumAnalProject1.Forms
 
             double[][][] ret = new double[3][][];
 
-            ret[0] = new double[height][];
-            for (int i = 0; i < height; i++)
+            for (int j = 0; j < 3; j++)
             {
-                ret[0][i] = new double[width];
-            }
-
-            ret[1] = new double[height][];
-            for (int i = 0; i < height; i++)
-            {
-                ret[1][i] = new double[width];
-            }
-
-            ret[2] = new double[height][];
-            for (int i = 0; i < height; i++)
-            {
-                ret[2][i] = new double[width];
+                ret[j] = new double[height][];
+                for (int i = 0; i < height; i++)
+                {
+                    ret[j][i] = new double[width];
+                }
             }
 
             BitmapData bitmapData = image.LockBits(new Rectangle(0, 0, width, height), 
@@ -123,7 +114,10 @@ namespace NumAnalProject1.Forms
 
         private void buttonRawImage_Click(object sender, EventArgs e)
         {
-            (new FormRawImage(pictureBoxPreview.Image)).ShowDialog();
+            if (pictureBoxPreview.Image != null)
+            {
+                (new FormRawImage(pictureBoxPreview.Image)).ShowDialog();
+            }
         }
 
         private void radioButtonNearestNeighbor_CheckedChanged(object sender, EventArgs e)
@@ -140,5 +134,6 @@ namespace NumAnalProject1.Forms
         {
             this.updateImage();
         }
+
     }
 }
