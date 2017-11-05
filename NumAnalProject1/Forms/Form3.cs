@@ -22,6 +22,7 @@ namespace NumAnalProject1.Forms
         }
 
         private ControlPoint[,] controlPoints;
+        private Bitmap paddedRawImage;
 
         protected override void updateImage()
         {
@@ -49,6 +50,7 @@ namespace NumAnalProject1.Forms
             pictureBoxPreview.Image = padImage(new Bitmap(this.rawImage),
                 (nRow - 1) * densityRow + 1 - rawImage.Height, 
                 (nColumn - 1) * densityColumn + 1 - rawImage.Width);
+            paddedRawImage = new Bitmap(pictureBoxPreview.Image);
 
             pictureBoxPreview.Size = pictureBoxPreview.Image.Size;
             this.Size = new Size(Math.Max(400, 400 + pictureBoxPreview.Size.Width), Math.Max(275, 275 + pictureBoxPreview.Height));
@@ -112,7 +114,110 @@ namespace NumAnalProject1.Forms
             newImage.UnlockBits(newBitmapData);
 
             return newImage;
-        } 
+        }
+
+        protected void BSpline()
+        {
+
+            int nx = (int)numericUpDownIntervalColumn.Value;
+            int ny = (int)numericUpDownIntervalRow.Value;
+
+            int X = pictureBoxPreview.Image.Size.Width;
+            int Y = pictureBoxPreview.Image.Size.Height;
+
+            Algorithms.Interpolation interpRed = null;
+            Algorithms.Interpolation interpGreen = null;
+            Algorithms.Interpolation interpBlue = null;
+
+            double[][][] mats = bitmapToMat(paddedRawImage);
+
+            if (radioButtonNearestNeighbor.Checked)
+            {
+                interpRed = new Algorithms.NearestNeighborInterpolation(mats[0]);
+                interpGreen = new Algorithms.NearestNeighborInterpolation(mats[1]);
+                interpBlue = new Algorithms.NearestNeighborInterpolation(mats[2]);
+            }
+
+            if (radioButtonBilinear.Checked)
+            {
+                interpRed = new Algorithms.BilinearInterpolation(mats[0]);
+                interpGreen = new Algorithms.BilinearInterpolation(mats[1]);
+                interpBlue = new Algorithms.BilinearInterpolation(mats[2]);
+            }
+
+            if (radioButtonBicubic.Checked)
+            {
+                interpRed = new Algorithms.BicubicInterpolation(mats[0]);
+                interpGreen = new Algorithms.BicubicInterpolation(mats[1]);
+                interpBlue = new Algorithms.BicubicInterpolation(mats[2]);
+            }
+
+            UInt32[][] mat = new UInt32[Y][];
+            for (int k = 0; k < Y; k++)
+            {
+                mat[k] = new UInt32[X];
+            }
+
+            Algorithms.CubicBSplineBase cubicBSplineBase = new Algorithms.CubicBSplineBase();
+
+            for (int x = 0; x < X; x++)
+            {
+                for (int y = 0; y < Y; y++)
+                {
+
+                    double currX = x;
+                    double currY = y;
+
+                    for (int count = 0; count < 20; count++)
+                    {
+                        double u = (currX / nx) - Math.Floor(currX / nx);
+                        double v = (currY / ny) - Math.Floor(currY / ny);
+
+                        int i = (int)Math.Floor(currX / nx) - 1;
+                        int j = (int)Math.Floor(currY / ny) - 1;
+
+                        double disX = 0;
+                        double disY = 0;
+
+                        for (int l = 0; l < 3; l++)
+                        {
+                            for (int m = 0; m < 3; m++)
+                            {
+                                double t1 = cubicBSplineBase.CalcBase(l, u);
+                                double t2 = cubicBSplineBase.CalcBase(m, v);
+
+                                double t3 = 0;
+                                double t4 = 0;
+                                if (i + l >= 0 && i + l < controlPoints.GetLength(1)
+                                    && j + m >= 0 && j + m < controlPoints.GetLength(0))
+                                {
+                                    t3 = controlPoints[j + m, i + l].getDisplacement().X;
+                                    t4 = controlPoints[j + m, i + l].getDisplacement().Y;
+                                }
+
+                                disX += t1 * t2 * t3;
+                                disY += t1 * t2 * t4;
+                            }
+                        }
+
+                        currX = Math.Max(0, Math.Min(X - 1, x - disX));
+                        currY = Math.Max(0, Math.Min(Y - 1, y - disY));
+                    }
+
+                    double red = interpRed.FromMatrix((int)currY, (int)currX);
+                    double green = interpGreen.FromMatrix((int)currY, (int)currX);
+                    double blue = interpBlue.FromMatrix((int)currY, (int)currX);
+
+                    int r = Math.Max(0, Math.Min(255, (int)red));
+                    int g = Math.Max(0, Math.Min(255, (int)green));
+                    int b = Math.Max(0, Math.Min(255, (int)blue));
+
+                    mat[y][x] = (UInt32)((0xff << 24) | (r << 16) | (g << 8) | (b << 0));
+                }
+            }
+
+            pictureBoxPreview.Image = new Bitmap(matToBitmap(mat));
+        }
 
         class ControlPoint : PictureBox
         {
@@ -170,6 +275,8 @@ namespace NumAnalProject1.Forms
                 this.prevLocation = this.Location;
 
                 this.BringToFront();
+
+                parent.BSpline();
 
                 parent.labelControlPointIndex.Text = "控制点下标：\r\n" + "未选中";
             }
