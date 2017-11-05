@@ -14,3 +14,4 @@ C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\o
 C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Release\NumAnalProject1.csproj.GenerateResource.Cache
 C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Release\NumAnalProject1.exe
 C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Release\NumAnalProject1.pdb
+C:\Users\kingi\OneDrive\Study\2017fall\NumAnal\NumAnalProject1\NumAnalProject1\obj\Release\NumAnalProject1.csprojResolveAssemblyReference.cache

@@ -193,7 +193,16 @@ namespace NumAnalProject1.Forms
                     double currX = x;
                     double currY = y;
 
-                    for (int count = 0; count < 20; count++)
+                    const double eps = 1e-2;
+                    const int maxIteration = 10;
+
+                    double disX = 0;
+                    double disY = 0;
+
+                    double prevDisX = 0;
+                    double prevDisY = 0;
+
+                    for (int count = 0; count < maxIteration; count++)
                     {
                         double u = (currX / nx) - Math.Floor(currX / nx);
                         double v = (currY / ny) - Math.Floor(currY / ny);
@@ -201,8 +210,8 @@ namespace NumAnalProject1.Forms
                         int i = (int)Math.Floor(currX / nx) - (order / 2);
                         int j = (int)Math.Floor(currY / ny) - (order / 2);
 
-                        double disX = 0;
-                        double disY = 0;
+                        disX = 0;
+                        disY = 0;
 
                         for (int l = 0; l <= order; l++)
                         {
@@ -227,6 +236,16 @@ namespace NumAnalProject1.Forms
 
                         currX = Math.Max(0, Math.Min(X - 1, x - disX));
                         currY = Math.Max(0, Math.Min(Y - 1, y - disY));
+
+                        if (Math.Max(Math.Abs(disX - prevDisX), Math.Abs(disY - prevDisY)) < eps)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            prevDisX = disX;
+                            prevDisY = disY;
+                        }
                     }
 
                     double red = interpRed.FromMatrix((int)currY, (int)currX);
