@@ -12,7 +12,7 @@ using System.Drawing.Imaging;
 
 namespace NumAnalProject1.Forms
 {
-    public partial class FormBase : Form
+    partial class FormBase : Form
     {
         public FormBase()
         {
@@ -23,7 +23,7 @@ namespace NumAnalProject1.Forms
         private void buttonOpenFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = Application.StartupPath + "..\\data";
+            dialog.InitialDirectory = Application.StartupPath + "\\..\\data";
             dialog.Filter = "暂仅支持bmp格式|*.bmp";
             dialog.RestoreDirectory = true;
             dialog.FilterIndex = 1;

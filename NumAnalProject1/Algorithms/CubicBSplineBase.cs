@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace NumAnalProject1.Algorithms
 {
+    /// <summary>
+    /// Base function of a cubic B-spline
+    /// </summary>
     class CubicBSplineBase : BSplineBase
     {
+        /// <summary>
+        /// Calculate the base function of order 3
+        /// </summary>
+        /// <param name="i">should range from 0 to 3 (inclusive)</param>
+        /// <param name="t">should range from 0 and 1</param>
+        /// <returns>the value of the base function, which serces as the weights of neighboring control points</returns>
         public override double CalcBase(int i, double t)
         {
             switch (i)

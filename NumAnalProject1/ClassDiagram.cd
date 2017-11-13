@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NumAnalProject1.Algorithms.BicubicInterpolation" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\BicubicInterpolation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Algorithms.BilinearInterpolation" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\BilinearInterpolation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Algorithms.BSplineBase" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\BSplineBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Algorithms.CubicBSplineBase" Collapsed="true">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\CubicBSplineBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Algorithms.Interpolation" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEACAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\Interpolation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Algorithms.LinearBSplineBase" Collapsed="true">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\LinearBSplineBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Algorithms.NearestNeighborInterpolation" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\NearestNeighborInterpolation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Forms.Form1" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAADAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\Form1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NumAnalProject1.Forms.Form2" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAADAAAACAAAACAAgCAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\Form2.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NumAnalProject1.Forms.Form3" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAIAQASIAkBAEAACAIEACgAQACAAABAIAAAAEAAg=</HashCode>
+      <FileName>Forms\Form3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Forms.FormBase" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAABCACAAABgEAECAoAACACAQCAAAQAwAAAAAAAA=</HashCode>
+      <FileName>Forms\FormBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Forms.FormRawImage" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAgACAAAAAAAAAAAACQAAAAA=</HashCode>
+      <FileName>Forms\FormRawImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Forms.FormStart" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAEACAAAACAAA4AAAAAHAAAAAAAAA=</HashCode>
+      <FileName>Forms\FormStart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Program" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Properties.Resources" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NumAnalProject1.Properties.Settings" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NumAnalProject1.Forms.OnValueChanged" Collapsed="true">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\OnValueChanged.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

@@ -11,7 +11,7 @@ using System.Drawing.Imaging;
 
 namespace NumAnalProject1.Forms
 {
-    public partial class Form3 : FormBase
+    partial class Form3 : FormBase
     {
         public Form3()
         {

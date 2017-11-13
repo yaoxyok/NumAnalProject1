@@ -10,8 +10,7 @@ using System.Windows.Forms;
 
 namespace NumAnalProject1.Forms
 {
-
-    public partial class Form1 : FormBase, OnValueChanged
+    partial class Form1 : FormBase, OnValueChanged
     {
         public Form1()
         {

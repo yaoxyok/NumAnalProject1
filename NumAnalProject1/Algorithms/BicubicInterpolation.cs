@@ -6,14 +6,31 @@ using System.Threading.Tasks;
 
 namespace NumAnalProject1.Algorithms
 {
+    /// <summary>
+    /// Bicubic Interpolation
+    /// </summary>
     class BicubicInterpolation : Interpolation
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="mat">one-channel image</param>
         public BicubicInterpolation(double[][] mat) : base(mat)
         {
         }
 
+        /// <summary>
+        /// Calculate the interpolated value in the matrix
+        /// </summary>
+        /// <remarks>
+        /// Reference: https://en.wikipedia.org/wiki/Bicubic_interpolation
+        /// </remarks>
+        /// <param name="x">row-coordinate of the intermediate point</param>
+        /// <param name="y">column-coordinate of the intermediate point</param>
+        /// <returns>result of the interpolation</returns>
         public override double FromMatrix(double x, double y)
         {
+
             int i = (int)Math.Floor(x);
             int j = (int)Math.Floor(y);
 
@@ -22,6 +39,8 @@ namespace NumAnalProject1.Algorithms
 
             int X = nrow;
             int Y = ncol;
+
+            // set boundary limits if the index exceeds the bounds of the image
 
             if (i < 1)
             {
@@ -47,6 +66,9 @@ namespace NumAnalProject1.Algorithms
                 v = 1;
             }
 
+            // See https://en.wikipedia.org/wiki/Bicubic_interpolation for the meaning of the following variables
+            // Matrix multiplication is expanded for better performance
+
             double f00 = mat[i][j];
             double f10 = mat[i + 1][j];
             double f01 = mat[i][j + 1];
@@ -67,7 +89,7 @@ namespace NumAnalProject1.Algorithms
             double fxy01 = (mat[i + 1][j + 2] + mat[i - 1][j] - f10 - mat[i - 1][j + 2]) / 4;
             double fxy11 = (mat[i + 2][j + 2] + f00 - mat[i + 2][j] - mat[i][j + 2]) / 4;
 
-            double[,] a = new double[4, 4];
+            double[,] a = new double[4, 4]; // the matrix A in the Wikipedia page
 
             a[0, 0] = f00;
             a[1, 0] = fx00;
@@ -92,10 +114,11 @@ namespace NumAnalProject1.Algorithms
                 - 3 * fy00 + 3 * fy10 - 3 * fy01 + 3 * fy11 - 2 * fxy00 - fxy10 - 2 * fxy01 - fxy11;
             a[3, 3] = 4 * f00 - 4 * f10 - 4 * f01 + 4 * f11 + 2 * fx00 + 2 * fx10 - 2 * fx01 - 2 * fx11
                 + 2 * fy00 - 2 * fy10 + 2 * fy01 - 2 * fy11 + fxy00 + fxy10 + fxy01 + fxy11;
-
+            
             double[] us = new double[] { 1, u, u * u, u * u * u };
             double[] vs = new double[] { 1, v, v * v, v * v * v };
 
+            // Matrix multiplication is expanded for better performance
             double ret = 0;
             for (int m = 0; m < 4; m++)
             {

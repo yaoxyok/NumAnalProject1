@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace NumAnalProject1.Forms
 {
-    public partial class FormRawImage : Form
+    partial class FormRawImage : Form
     {
         public FormRawImage(Image image)
         {
@@ -25,13 +26,22 @@ namespace NumAnalProject1.Forms
         protected void panel_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.InitialDirectory = Application.StartupPath;
+            dialog.InitialDirectory = Application.StartupPath + "\\..\\results";
             dialog.Filter = "暂仅支持bmp格式|*.bmp";
             dialog.RestoreDirectory = true;
             dialog.FilterIndex = 1;
-            dialog.ShowDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = dialog.FileName;
+                box.Image.Save(fileName);
+            }
         }
 
         protected PictureBox box;
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

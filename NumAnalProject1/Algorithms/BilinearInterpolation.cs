@@ -6,12 +6,28 @@ using System.Threading.Tasks;
 
 namespace NumAnalProject1.Algorithms
 {
+    /// <summary>
+    /// Bilinear Interpolation
+    /// </summary>
     class BilinearInterpolation : Interpolation
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="mat">one-channel image</param>
         public BilinearInterpolation(double[][] mat) : base(mat)
         {
         }
 
+        /// <summary>
+        /// Calculate the interpolated value in the matrix
+        /// </summary>
+        /// <remarks>
+        /// Reference: https://en.wikipedia.org/wiki/Bilinear_interpolation
+        /// </remarks>
+        /// <param name="x">row-coordinate of the intermediate point</param>
+        /// <param name="y">column-coordinate of the intermediate point</param>
+        /// <returns>result of the interpolation</returns>
         public override double FromMatrix(double x, double y)
         {
             int i = (int)Math.Floor(x);
